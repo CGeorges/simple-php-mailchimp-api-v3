@@ -71,7 +71,15 @@ class API3 {
         if($method === 'get' || $method === 'delete') {
             $url .= '?' . http_build_query($args);
         }
-
+        
+        if($method == 'delete') {
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+        }
+        
+        if($method === 'patch') {
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PATCH");
+        }
+        
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_USERAGENT, 'PHP-MCAPI/3.0');
