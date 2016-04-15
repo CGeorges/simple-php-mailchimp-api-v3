@@ -11,7 +11,7 @@ class API3 {
     private $_api_key;
     private $_api_root_endpoint = 'https://<dc>.api.mailchimp.com/3.0';
     private $_verify_ssl   = false;
-    private $_allowedMethods = ['get', 'head', 'put', 'post', 'patch', 'delete'];
+    private $_allowedMethods = ['get', 'post', 'patch', 'delete'];
 
 
     function __construct($api_key)
