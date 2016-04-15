@@ -91,12 +91,6 @@ class API3 {
         $result = curl_exec($ch);
         curl_close($ch);
 
-        if (defined('LOG_MAILCHIMP_REQUESTS') && LOG_MAILCHIMP_REQUESTS) {
-            if (function_exists('ucn_log_api_call')) {
-                ucn_log_api_call('makeRequest::[' . $method . '] ' . $endpoint, json_encode($args), $result);
-            }
-        }
-
         return $result ? json_decode($result, true) : false;
     }
 
